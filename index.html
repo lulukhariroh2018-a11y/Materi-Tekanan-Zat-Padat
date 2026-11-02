@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi Ajar Interaktif: Tekanan Zat Padat - Kelas VIII</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax for LaTeX Math Formulas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Google Fonts: Inter & Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.1), 0 8px 10px -6px rgba(16, 185, 129, 0.1);
+        }
+        /* Tab Active Styling */
+        .tab-active {
+            background-color: #059669;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(5, 150, 105, 0.4);
+        }
+        .tab-inactive {
+            background-color: #ffffff;
+            color: #374151;
+        }
+        .tab-inactive:hover {
+            background-color: #ecfdf5;
+            color: #059669;
+        }
+    </style>
+</head>
+<body class="text-gray-800 min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / BANNER IDENTITAS -->
+    <header class="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="p-3 bg-white/20 rounded-2xl backdrop-blur-md border border-white/30">
+                    <i class="fa-solid fa-gauge-high text-3xl text-yellow-300"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight">IPA Kelas VIII: Tekanan Zat Padat</h1>
+                    <p class="text-xs sm:text-sm text-emerald-100 font-medium">Media Pembelajaran Interaktif & Simulation-Based Learning</p>
+                </div>
+            </div>
+            
+            <!-- IDENTITAS PENYUSUN -->
+            <div class="bg-white/15 backdrop-blur-md border border-white/25 rounded-xl px-4 py-2 flex items-center space-x-3 text-right">
+                <div class="text-left md:text-right">
+                    <span class="block text-[10px] uppercase tracking-wider text-emerald-200 font-bold">Penyusun Materi:</span>
+                    <span class="text-sm font-bold text-white tracking-wide">Dr. Luluk Hariroh, S.Pd., M.Si.</span>
+                </div>
+                <div class="w-9 h-9 rounded-full bg-yellow-400 text-emerald-900 flex items-center justify-center font-bold text-lg shadow">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- NAVIGATION TABS -->
+        <nav class="bg-emerald-800/60 backdrop-blur-md border-t border-emerald-500/30">
+            <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                <div class="flex justify-center sm:justify-start space-x-1 sm:space-x-2 py-2 overflow-x-auto">
+                    <button onclick="switchTab('pendahuluan')" id="tab-pendahuluan" class="tab-btn tab-active px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-compass"></i> 1. Pendahuluan
+                    </button>
+                    <button onclick="switchTab('materi')" id="tab-materi" class="tab-btn tab-inactive px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-book-open"></i> 2. Materi & Nilai Cinta
+                    </button>
+                    <button onclick="switchTab('lab')" id="tab-lab" class="tab-btn tab-inactive px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-flask"></i> 3. Lab Virtual
+                    </button>
+                    <button onclick="switchTab('lkm')" id="tab-lkm" class="tab-btn tab-inactive px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-file-pen"></i> 4. LKM Interaktif
+                    </button>
+                    <button onclick="switchTab('kuis')" id="tab-kuis" class="tab-btn tab-inactive px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+                        <i class="fa-solid fa-award"></i> 5. Kuis & Evaluasi
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+
+        <!-- ==================== TAB 1: PENDAHULUAN ==================== -->
+        <section id="content-pendahuluan" class="space-y-6">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 custom-shadow border border-emerald-100">
+                <div class="border-b border-emerald-100 pb-4 mb-6 flex items-center justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">Kurikulum Merdeka</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-pink-600 bg-pink-50 px-3 py-1 rounded-full flex items-center gap-1">
+                                <i class="fa-solid fa-heart text-pink-500"></i> Berbasis Kurikulum Cinta
+                            </span>
+                        </div>
+                        <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mt-2">Selamat Datang di Modul Interaktif Berbasis Cinta!</h2>
+                    </div>
+                    <i class="fa-solid fa-heart-circle-check text-4xl text-pink-400 hidden sm:block"></i>
+                </div>
+
+                <!-- Pesan Cinta Penyusun -->
+                <div class="bg-gradient-to-r from-pink-50 via-rose-50 to-emerald-50 border-l-4 border-pink-500 p-5 rounded-r-xl mb-6">
+                    <h3 class="text-lg font-bold text-pink-900 flex items-center gap-2">
+                        <i class="fa-solid fa-heart text-pink-600"></i> Pesan Cinta Penyusun (Dr. Luluk Hariroh, S.Pd., M.Si.)
+                    </h3>
+                    <p class="mt-2 text-gray-700 leading-relaxed text-sm">
+                        <i>"Belajar IPA bukan hanya tentang menghafal rumus dan angka, melainkan tentang menumbuhkan <strong>rasa cinta, empati, dan kekaguman</strong> pada ciptaan Tuhan. Memahami hukum fisika tekanan zat padat mengajarkan kita bagaimana bersikap: bijak dalam bertindak agar tidak menyakiti lingkungan dan mampu melapangkan dada saat menghadapi ujian hidup."</i>
+                    </p>
+                </div>
+
+                <!-- Motivasi / Fenomena -->
+                <div class="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-500 p-5 rounded-r-xl mb-8">
+                    <h3 class="text-lg font-bold text-amber-900 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question text-amber-600"></i> Mari Berpikir dengan Empati & Kasih Sayang (Apersepsi)
+                    </h3>
+                    <p class="mt-2 text-gray-700 leading-relaxed">
+                        Pernahkah kamu memperhatikan bagaimana bentuk kaki bebek yang berselaput diciptakan Tuhan dengan begitu penuh kasih sayang? Selaput itu dirancang agar bebek tidak merasa kelelahan saat berjalan di lumpur. Bagaimana pula kita dapat menerapkan prinsip fisika ini untuk merawat fasiltas umum (seperti tidak merusak jalan) dan saling membantu sesama? 
+                    </p>
+                </div>
+
+                <!-- Capaian & Tujuan Pembelajaran -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-emerald-900">Capaian Pembelajaran (CP)</h3>
+                        </div>
+                        <p class="text-sm text-gray-700 leading-relaxed">
+                            Peserta didik mampu memahami konsep tekanan zat padat serta kaitannya dengan luas permukaan dan gaya tekan, mengaplikasikannya dalam kehidupan, serta membangun karakter peduli lingkungan dan empati sosial.
+                        </p>
+                    </div>
+
+                    <div class="bg-teal-50/70 border border-teal-200 rounded-xl p-5">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-8 h-8 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold">
+                                <i class="fa-solid fa-list-check"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-teal-900">Tujuan Pembelajaran Berbasis Cinta (TP)</h3>
+                        </div>
+                        <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                            <li>Menjelaskan definisi tekanan zat padat secara sains dan makna kehidupannya.</li>
+                            <li>Menganalisis hubungan gaya, luas bidang, dan besar tekanan dengan cermat.</li>
+                            <li>Melakukan eksperimen virtual melalui LKM dengan rasa ingin tahu dan kejujuran ilmiah.</li>
+                            <li>Menumbuhkan empati terhadap lingkungan dan ciptaan Tuhan melalui penerapan konsep tekanan.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- ==================== TAB 4: LKM INTERAKTIF ==================== -->
+        <section id="content-lkm" class="hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 custom-shadow border border-emerald-100">
+                <div class="border-b border-gray-200 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">Lembar Kerja Murid</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-file-pen text-emerald-600"></i> LKM: Eksperimen Tekanan Zat Padat
+                    </h2>
+                    <p class="text-sm text-gray-600 mt-1">Gunakan Laboratorium Virtual pada Tab 3 untuk melengkapi tabel pengamatan di bawah ini!</p>
+                </div>
+
+                <!-- FORM IDENTITAS SISWA -->
+                <div class="bg-emerald-50/50 border border-emerald-200 p-4 rounded-xl mb-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Siswa / Kelompok:</label>
+                        <input type="text" id="lkm-nama" placeholder="Ketik nama di sini..." class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Kelas:</label>
+                        <input type="text" id="lkm-kelas" placeholder="Contoh: VIII-A" class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Tanggal Percobaan:</label>
+                        <input type="date" id="lkm-tanggal" class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    </div>
+                </div>
+
+                <!-- TABEL PENGAMATAN -->
+                <div class="overflow-x-auto mb-8">
+                    <h3 class="font-bold text-gray-800 text-base mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-table text-emerald-600"></i> Tabel 1. Data Hasil Simulasi Virtual
+                    </h3>
+                    <table class="w-full text-sm text-left border-collapse border border-gray-200 rounded-lg overflow-hidden">
+                        <thead class="bg-emerald-700 text-white uppercase text-xs">
+                            <tr>
+                                <th class="p-3 border border-emerald-600 text-center">No</th>
+                                <th class="p-3 border border-emerald-600">Gaya Tekan / F (N)</th>
+                                <th class="p-3 border border-emerald-600">Luas Alas / A (m²)</th>
+                                <th class="p-3 border border-emerald-600">Hitung Tekanan P (N/m²)</th>
+                                <th class="p-3 border border-emerald-600 text-center">Kedalaman Tancapan (Sangat Dalam / Dalam / Dangkal)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 text-gray-700">
+                            <!-- Percobaan 1 -->
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 text-center font-bold">1</td>
+                                <td class="p-3 font-semibold">100 N</td>
+                                <td class="p-3 font-semibold">1.0 m²</td>
+                                <td class="p-3">
+                                    <input type="number" id="lkm-p1" placeholder="..." class="w-24 px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500 text-center">
+                                </td>
+                                <td class="p-3">
+                                    <select id="lkm-k1" class="w-full px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500">
+                                        <option value="">-- Pilih --</option>
+                                        <option value="Dangkal">Dangkal</option>
+                                        <option value="Dalam">Dalam</option>
+                                        <option value="Sangat Dalam">Sangat Dalam</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <!-- Percobaan 2 -->
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 text-center font-bold">2</td>
+                                <td class="p-3 font-semibold">100 N</td>
+                                <td class="p-3 font-semibold">4.0 m²</td>
+                                <td class="p-3">
+                                    <input type="number" id="lkm-p2" placeholder="..." class="w-24 px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500 text-center">
+                                </td>
+                                <td class="p-3">
+                                    <select id="lkm-k2" class="w-full px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500">
+                                        <option value="">-- Pilih --</option>
+                                        <option value="Dangkal">Dangkal</option>
+                                        <option value="Dalam">Dalam</option>
+                                        <option value="Sangat Dalam">Sangat Dalam</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <!-- Percobaan 3 -->
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 text-center font-bold">3</td>
+                                <td class="p-3 font-semibold">300 N</td>
+                                <td class="p-3 font-semibold">1.0 m²</td>
+                                <td class="p-3">
+                                    <input type="number" id="lkm-p3" placeholder="..." class="w-24 px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500 text-center">
+                                </td>
+                                <td class="p-3">
+                                    <select id="lkm-k3" class="w-full px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500">
+                                        <option value="">-- Pilih --</option>
+                                        <option value="Dangkal">Dangkal</option>
+                                        <option value="Dalam">Dalam</option>
+                                        <option value="Sangat Dalam">Sangat Dalam</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- SOAL ANALISIS BERPIKIR KRITIS -->
+                <div class="space-y-6">
+                    <h3 class="font-bold text-gray-800 text-base border-b pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square text-emerald-600"></i> Pertanyaan Analisis & Refleksi Karakter Cinta
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-800 mb-2">
+                                1. Berdasarkan data percobaan 1 dan 2 (gaya F sama, luas alas A berbeda), bagaimana pengaruh luas bidang tekan terhadap besar tekanan dan kedalaman tancapan balok?
+                            </label>
+                            <textarea id="lkm-q1" rows="3" placeholder="Tuliskan analisis jawabanmu di sini..." class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 text-sm outline-none"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-800 mb-2">
+                                2. Berdasarkan data percobaan 1 dan 3 (luas alas A sama, gaya F berbeda), bagaimana pengaruh gaya tekan terhadap besar tekanan?
+                            </label>
+                            <textarea id="lkm-q2" rows="3" placeholder="Tuliskan analisis jawabanmu di sini..." class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 text-sm outline-none"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-800 mb-2 text-pink-800">
+                                <i class="fa-solid fa-heart text-pink-600"></i> 3. Refleksi Berbasis Cinta: Truk barang berbeban sangat berat dilarang melintas jika jumlah rodanya terlalu sedikit. Bagaimana prinsip fisika ini mengajarkan kita tentang pentingnya empati dan rasa cinta dalam menjaga fasilitas umum bersama masyarakat?
+                            </label>
+                            <textarea id="lkm-q3" rows="3" placeholder="Tuliskan refleksi kepedulian sosialmu..." class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-400 text-sm outline-none bg-pink-50/30"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Cek & Simpan -->
+                    <div class="flex flex-col sm:flex-row gap-3 justify-end pt-4">
+                        <button onclick="checkLKM()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-check-circle"></i> Periksa Jawaban Hitungan
+                        </button>
+                    </div>
+
+                    <!-- Alert Notifikasi Jawaban -->
+                    <div id="lkm-alert" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 3: LABORATORIUM VIRTUAL ==================== -->
+        <section id="content-lab" class="hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 custom-shadow border border-emerald-100">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-gray-200 pb-4 mb-6 gap-2">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-3 py-1 rounded-full">Simulasi Eksperimen</span>
+                        <h2 class="text-2xl font-bold text-gray-800 mt-1 flex items-center gap-2">
+                            <i class="fa-solid fa-flask text-emerald-600"></i> Laboratorium Virtual Tekanan Balok
+                        </h2>
+                    </div>
+                    <p class="text-xs text-gray-500 max-w-md">Ubah nilai Massa/Gaya Tekan dan Luas Alas untuk melihat dampaknya secara langsung pada kedalaman tancapan balok ke media lunak.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- KONTROL INPUT SIMULASI (5 COLS) -->
+                    <div class="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-6 space-y-6">
+                        <h3 class="font-bold text-gray-800 text-lg border-b pb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-sliders text-emerald-600"></i> Panel Kontrol Balok
+                        </h3>
+
+                        <!-- Input 1: Gaya / Massa (F) -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label for="input-force" class="text-sm font-semibold text-gray-700">Massa / Gaya Tekan (F)</label>
+                                <span class="bg-emerald-600 text-white text-xs font-bold px-3 py-1 rounded-full" id="val-force">100 N</span>
+                            </div>
+                            <input type="range" id="input-force" min="50" max="400" step="10" value="100" class="w-full accent-emerald-600 cursor-pointer" oninput="updateSimulation()">
+                            <div class="flex justify-between text-[11px] text-gray-500 mt-1">
+                                <span>Ringan (50 N)</span>
+                                <span>Sedang (200 N)</span>
+                                <span>Berat (400 N)</span>
+                            </div>
+                        </div>
+
+                        <!-- Input 2: Luas Alas (A) -->
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <label for="input-area" class="text-sm font-semibold text-gray-700">Luas Bidang Tekan (A)</label>
+                                <span class="bg-teal-600 text-white text-xs font-bold px-3 py-1 rounded-full" id="val-area">2.0 m²</span>
+                            </div>
+                            <input type="range" id="input-area" min="0.5" max="5.0" step="0.5" value="2.0" class="w-full accent-teal-600 cursor-pointer" oninput="updateSimulation()">
+                            <div class="flex justify-between text-[11px] text-gray-500 mt-1">
+                                <span>Kecil/Runcing (0.5 m²)</span>
+                                <span>Sangat Lebar (5.0 m²)</span>
+                            </div>
+                        </div>
+
+                        <!-- Hasil Perhitungan Real-time -->
+                        <div class="bg-white border-2 border-emerald-500 rounded-xl p-4 shadow-sm space-y-3">
+                            <h4 class="text-xs uppercase font-extrabold tracking-wider text-emerald-700 flex items-center justify-between">
+                                <span>Hasil Output Tekanan:</span>
+                                <span id="pressure-level-badge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">Sedang</span>
+                            </h4>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-600">Rumus:</span>
+                                <span class="text-sm font-mono font-bold text-gray-800" id="calc-formula">P = 100 / 2.0</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-dashed pt-2">
+                                <span class="text-base font-bold text-gray-800">Besar Tekanan (P):</span>
+                                <span class="text-2xl font-extrabold text-emerald-600" id="calc-result">50 N/m²</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs text-gray-500 border-t pt-2">
+                                <span>Kedalaman Tancapan:</span>
+                                <span class="font-bold text-amber-700 font-mono text-sm" id="calc-depth">2.5 cm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VISUALISASI CANVAS / SIMULASI GRAPHICAL (7 COLS) -->
+                    <div class="lg:col-span-7 bg-slate-900 border border-slate-700 rounded-2xl p-6 flex flex-col justify-between items-center relative overflow-hidden shadow-2xl">
+                        <div class="w-full flex justify-between items-center mb-4 z-20">
+                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping"></span> Simulasi Real-Time Active
+                            </span>
+                            <span class="text-xs bg-slate-800 px-3 py-1 border border-slate-700 rounded-full text-slate-300 font-mono">
+                                Status: Live Rendering
+                            </span>
+                        </div>
+
+                        <!-- Graphic Container -->
+                        <div class="w-full h-80 relative flex justify-center items-end bg-gradient-to-b from-slate-950 via-slate-900 to-amber-950/40 rounded-xl overflow-hidden border border-slate-800 shadow-inner">
+                            
+                            <!-- Skala Penggaris Kedalaman -->
+                            <div class="absolute left-3 bottom-0 top-6 flex flex-col justify-between text-[10px] text-slate-400 font-mono border-r border-slate-700 pr-2 z-10">
+                                <span class="text-emerald-400">0 cm (Permukaan)</span>
+                                <span>-5 cm</span>
+                                <span>-10 cm</span>
+                                <span>-15 cm</span>
+                                <span>-20 cm (Maksimal)</span>
+                            </div>
+
+                            <!-- Garis Penanda Kedalaman Terkini (Dinamis) -->
+                            <div id="depth-indicator-line" class="absolute left-0 w-full border-t border-dashed border-red-500/80 z-20 transition-all duration-300 flex justify-end pr-3" style="bottom: 96px;">
+                                <span class="text-[10px] font-mono bg-red-600 text-white px-2 py-0.5 rounded shadow -translate-y-1/2" id="depth-indicator-tag">Kedalaman: 2.5 cm</span>
+                            </div>
+
+                            <!-- Media Lumpur / Tanah Lunak -->
+                            <div class="absolute bottom-0 w-full h-24 bg-amber-900/90 backdrop-blur-md flex flex-col justify-end items-center border-t-4 border-amber-700/80 z-10">
+                                <!-- Tekstur Garis Lumpur -->
+                                <div class="w-full h-full opacity-20 bg-[radial-gradient(#d97706_1px,transparent_1px)] [background-size:8px_8px]"></div>
+                                <span class="text-amber-200 text-xs font-bold uppercase tracking-widest pb-2 z-20 drop-shadow">Media Lumpur / Tanah Lunak</span>
+                            </div>
+
+                            <!-- Bekas Tancapan / Cekungan Lumpur (Dinamis) -->
+                            <div id="sim-indent" class="absolute bottom-0 bg-amber-950 border-x-2 border-b-2 border-amber-600/60 z-10 transition-all duration-300 rounded-b" style="width: 140px; height: 96px;"></div>
+
+                            <!-- Balok kayu yang menekan -->
+                            <div id="sim-block" class="bg-gradient-to-b from-amber-400 via-amber-600 to-amber-700 border-2 border-amber-300 rounded-t-lg shadow-2xl transition-all duration-300 flex flex-col justify-between items-center p-3 z-30 relative" style="width: 140px; height: 130px; transform: translateY(-24px);">
+                                <!-- Panah Gaya (F) -->
+                                <div class="flex flex-col items-center text-red-500 font-extrabold animate-pulse">
+                                    <i class="fa-solid fa-arrow-down-long text-2xl drop-shadow"></i>
+                                    <span class="text-[10px] bg-red-950 text-red-300 px-2 py-0.5 rounded border border-red-700 font-mono font-bold shadow">F = <span id="block-f-text">100</span> N</span>
+                                </div>
+                                
+                                <span class="text-white font-black text-xs tracking-widest uppercase text-center bg-black/40 px-3 py-1 rounded-md border border-white/20 shadow">BALOK ZAT PADAT</span>
+                                
+                                <span class="text-[10px] font-mono text-amber-100 bg-amber-950/80 px-2 py-0.5 rounded border border-amber-500/40">Luas Alas (A) = <span id="block-a-text">2.0</span> m²</span>
+                            </div>
+                        </div>
+
+                        <!-- Keterangan Visual Real-time -->
+                        <div class="w-full mt-4 bg-slate-800/80 p-3 rounded-xl border border-slate-700 text-xs text-slate-300 flex flex-wrap items-center justify-between gap-2 z-20">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 bg-red-500 rounded-full inline-block"></span>
+                                <span>Gaya Tekan (F)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 bg-teal-400 rounded-full inline-block"></span>
+                                <span>Luas Alas (A)</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 bg-amber-500 rounded-full inline-block"></span>
+                                <span>Kedalaman Tancapan Balok</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 4: LKPD INTERAKTIF ==================== -->
+        <section id="content-lkpd" class="hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 custom-shadow border border-emerald-100">
+                <div class="border-b border-gray-200 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">Lembar Kerja Peserta Didik</span>
+                    <h2 class="text-2xl font-bold text-gray-800 mt-1 flex items-center gap-2">
+                        <i class="fa-solid fa-file-pen text-emerald-600"></i> LKPD: Eksperimen Tekanan Zat Padat
+                    </h2>
+                    <p class="text-sm text-gray-600 mt-1">Gunakan Laboratorium Virtual pada Tab 3 untuk melengkapi tabel pengamatan di bawah ini!</p>
+                </div>
+
+                <!-- FORM IDENTITAS SISWA -->
+                <div class="bg-emerald-50/50 border border-emerald-200 p-4 rounded-xl mb-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Nama Siswa / Kelompok:</label>
+                        <input type="text" id="lkpd-nama" placeholder="Ketik nama di sini..." class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Kelas:</label>
+                        <input type="text" id="lkpd-kelas" placeholder="Contoh: VIII-A" class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 uppercase mb-1">Tanggal Percobaan:</label>
+                        <input type="date" id="lkpd-tanggal" class="w-full px-3 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-emerald-500 outline-none">
+                    </div>
+                </div>
+
+                <!-- TABEL PENGAMATAN -->
+                <div class="overflow-x-auto mb-8">
+                    <h3 class="font-bold text-gray-800 text-base mb-3 flex items-center gap-2">
+                        <i class="fa-solid fa-table text-emerald-600"></i> Tabel 1. Data Hasil Simulasi Virtual
+                    </h3>
+                    <table class="w-full text-sm text-left border-collapse border border-gray-200 rounded-lg overflow-hidden">
+                        <thead class="bg-emerald-700 text-white uppercase text-xs">
+                            <tr>
+                                <th class="p-3 border border-emerald-600 text-center">No</th>
+                                <th class="p-3 border border-emerald-600">Gaya Tekan / F (N)</th>
+                                <th class="p-3 border border-emerald-600">Luas Alas / A (m²)</th>
+                                <th class="p-3 border border-emerald-600">Hitung Tekanan P (N/m²)</th>
+                                <th class="p-3 border border-emerald-600 text-center">Kedalaman Tancapan (Sangat Dalam / Dalam / Dangkal)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 text-gray-700">
+                            <!-- Percobaan 1 -->
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 text-center font-bold">1</td>
+                                <td class="p-3 font-semibold">100 N</td>
+                                <td class="p-3 font-semibold">1.0 m²</td>
+                                <td class="p-3">
+                                    <input type="number" id="lkpd-p1" placeholder="..." class="w-24 px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500 text-center">
+                                </td>
+                                <td class="p-3">
+                                    <select id="lkpd-k1" class="w-full px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500">
+                                        <option value="">-- Pilih --</option>
+                                        <option value="Dangkal">Dangkal</option>
+                                        <option value="Dalam">Dalam</option>
+                                        <option value="Sangat Dalam">Sangat Dalam</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <!-- Percobaan 2 -->
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 text-center font-bold">2</td>
+                                <td class="p-3 font-semibold">100 N</td>
+                                <td class="p-3 font-semibold">4.0 m²</td>
+                                <td class="p-3">
+                                    <input type="number" id="lkpd-p2" placeholder="..." class="w-24 px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500 text-center">
+                                </td>
+                                <td class="p-3">
+                                    <select id="lkpd-k2" class="w-full px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500">
+                                        <option value="">-- Pilih --</option>
+                                        <option value="Dangkal">Dangkal</option>
+                                        <option value="Dalam">Dalam</option>
+                                        <option value="Sangat Dalam">Sangat Dalam</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <!-- Percobaan 3 -->
+                            <tr class="hover:bg-slate-50">
+                                <td class="p-3 text-center font-bold">3</td>
+                                <td class="p-3 font-semibold">300 N</td>
+                                <td class="p-3 font-semibold">1.0 m²</td>
+                                <td class="p-3">
+                                    <input type="number" id="lkpd-p3" placeholder="..." class="w-24 px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500 text-center">
+                                </td>
+                                <td class="p-3">
+                                    <select id="lkpd-k3" class="w-full px-2 py-1 border rounded focus:ring-2 focus:ring-emerald-500">
+                                        <option value="">-- Pilih --</option>
+                                        <option value="Dangkal">Dangkal</option>
+                                        <option value="Dalam">Dalam</option>
+                                        <option value="Sangat Dalam">Sangat Dalam</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- SOAL ANALISIS BERPIKIR KRITIS -->
+                <div class="space-y-6">
+                    <h3 class="font-bold text-gray-800 text-base border-b pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-pen-to-square text-emerald-600"></i> Pertanyaan Analisis & Refleksi Karakter Cinta
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-800 mb-2">
+                                1. Berdasarkan data percobaan 1 dan 2 (gaya F sama, luas alas A berbeda), bagaimana pengaruh luas bidang tekan terhadap besar tekanan dan kedalaman tancapan balok?
+                            </label>
+                            <textarea id="lkpd-q1" rows="3" placeholder="Tuliskan analisis jawabanmu di sini..." class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 text-sm outline-none"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-800 mb-2">
+                                2. Berdasarkan data percobaan 1 dan 3 (luas alas A sama, gaya F berbeda), bagaimana pengaruh gaya tekan terhadap besar tekanan?
+                            </label>
+                            <textarea id="lkpd-q2" rows="3" placeholder="Tuliskan analisis jawabanmu di sini..." class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-emerald-500 text-sm outline-none"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-800 mb-2 text-pink-800">
+                                <i class="fa-solid fa-heart text-pink-600"></i> 3. Refleksi Berbasis Cinta: Truk barang berbeban sangat berat dilarang melintas jika jumlah rodanya terlalu sedikit. Bagaimana prinsip fisika ini mengajarkan kita tentang pentingnya empati dan rasa cinta dalam menjaga fasilitas umum bersama masyarakat?
+                            </label>
+                            <textarea id="lkpd-q3" rows="3" placeholder="Tuliskan refleksi kepedulian sosialmu..." class="w-full p-3 border rounded-xl focus:ring-2 focus:ring-pink-400 text-sm outline-none bg-pink-50/30"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Tombol Cek & Simpan -->
+                    <div class="flex flex-col sm:flex-row gap-3 justify-end pt-4">
+                        <button onclick="checkLKPD()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-check-circle"></i> Periksa Jawaban Hitungan
+                        </button>
+                    </div>
+
+                    <!-- Alert Notifikasi Jawaban -->
+                    <div id="lkpd-alert" class="hidden p-4 rounded-xl text-sm font-medium"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== TAB 5: KUIS & EVALUASI ==================== -->
+        <section id="content-kuis" class="hidden space-y-6">
+            <div class="bg-white rounded-2xl p-6 sm:p-8 custom-shadow border border-emerald-100">
+                <div class="border-b border-gray-200 pb-4 mb-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-3 py-1 rounded-full">Evaluasi Pembelajaran Berbasis Cinta</span>
+                        <h2 class="text-2xl font-bold text-gray-800 mt-1 flex items-center gap-2">
+                            <i class="fa-solid fa-award text-amber-500"></i> Kuis Interaktif (PG Kompleks & HOTS)
+                        </h2>
+                    </div>
+                    <div id="score-badge" class="hidden bg-emerald-100 border border-emerald-300 text-emerald-800 px-4 py-2 rounded-xl text-center">
+                        <span class="text-xs font-bold block">Skor Kamu:</span>
+                        <span class="text-2xl font-extrabold" id="final-score">0 / 100</span>
+                    </div>
+                </div>
+
+                <form id="quiz-form" class="space-y-8" onsubmit="event.preventDefault(); submitQuiz();">
+                    
+                    <!-- SOAL 1: PG Kompleks (Multiple Select) -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 1</span>
+                            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">Pilihan Ganda Kompleks</span>
+                        </div>
+                        <p class="font-semibold text-gray-800 text-sm sm:text-base">
+                            Manakah dari pernyataan berikut yang **BENAR** mengenai hubungan antar variabel pada tekanan zat padat? <i>(Pilih lebih dari satu jawaban yang benar)</i>
+                        </p>
+                        <div class="space-y-2 text-sm text-gray-700 pt-2">
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="checkbox" name="q1" value="A" class="mt-1 accent-emerald-600 w-4 h-4">
+                                <span>A. Tekanan (P) berbanding lurus dengan gaya tekan (F). Semakin besar gaya, tekanan semakin besar.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="checkbox" name="q1" value="B" class="mt-1 accent-emerald-600 w-4 h-4">
+                                <span>B. Tekanan (P) berbanding terbalik dengan luas bidang tekan (A). Semakin kecil luas bidang, tekanan semakin besar.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="checkbox" name="q1" value="C" class="mt-1 accent-emerald-600 w-4 h-4">
+                                <span>C. Luas bidang tekan yang besar akan menghasilkan tekanan yang besar pula jika gayanya tetap.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="checkbox" name="q1" value="D" class="mt-1 accent-emerald-600 w-4 h-4">
+                                <span>D. Satuan Internasional (SI) untuk tekanan adalah Pascal (Pa) atau N/m².</span>
+                            </label>
+                        </div>
+                        <div id="feedback-q1" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+                    </div>
+
+                    <!-- SOAL 2: PG Standar Hitungan -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 2</span>
+                            <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200">Hitungan Konseptual</span>
+                        </div>
+                        <p class="font-semibold text-gray-800 text-sm sm:text-base">
+                            Sebuah balok beton memiliki gaya berat sebesar 600 N. Jika luas alas balok yang menyentuh tanah adalah 3 m², berapakah besar tekanan balok tersebut terhadap tanah?
+                        </p>
+                        <div class="space-y-2 text-sm text-gray-700 pt-2">
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="radio" name="q2" value="A" class="accent-emerald-600 w-4 h-4">
+                                <span>A. 1800 N/m²</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="radio" name="q2" value="B" class="accent-emerald-600 w-4 h-4">
+                                <span>B. 200 N/m²</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="radio" name="q2" value="C" class="accent-emerald-600 w-4 h-4">
+                                <span>C. 100 N/m²</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="radio" name="q2" value="D" class="accent-emerald-600 w-4 h-4">
+                                <span>D. 50 N/m²</span>
+                            </label>
+                        </div>
+                        <div id="feedback-q2" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+                    </div>
+
+                    <!-- SOAL 3: Analisis Berpikir Kritis / HOTS -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 3</span>
+                            <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">Berpikir Kritis / HOTS</span>
+                        </div>
+                        <p class="font-semibold text-gray-800 text-sm sm:text-base">
+                            Seorang pesepakbola memilih menggunakan sepatu ber-stul (paku alas) saat bermain di lapangan rumput yang basah dan licin. Analisis fisika manakah yang paling tepat menjelaskan pilihan tersebut?
+                        </p>
+                        <div class="space-y-2 text-sm text-gray-700 pt-2">
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="radio" name="q3" value="A" class="accent-emerald-600 w-4 h-4 mt-1">
+                                <span>A. Stul memperbesar luas alas sepatu sehingga tekanan ke tanah menjadi kecil dan kaki tidak terasa sakit.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="radio" name="q3" value="B" class="accent-emerald-600 w-4 h-4 mt-1">
+                                <span>B. Stul memperkecil luas alas kontak dengan tanah sehingga tekanan menjadi sangat besar, membuat sepatu menancap mantap dan mencegah tergelincir.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="radio" name="q3" value="C" class="accent-emerald-600 w-4 h-4 mt-1">
+                                <span>C. Stul menambah gaya berat pemain sehingga tekanan berbanding lurus dengan massa pemain.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-emerald-50/50 cursor-pointer">
+                                <input type="radio" name="q3" value="D" class="accent-emerald-600 w-4 h-4 mt-1">
+                                <span>D. Stul membuat tekanan tersebar merata ke seluruh permukaan lapangan rumput.</span>
+                            </label>
+                        </div>
+                        <div id="feedback-q3" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+                    </div>
+
+                    <!-- SOAL 4: KBC & Aplikasi Nyata -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-3">
+                        <div class="flex items-center gap-2">
+                            <span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">Soal 4</span>
+                            <span class="text-xs font-bold text-pink-700 bg-pink-50 px-2 py-0.5 rounded border border-pink-200">Integrasi Kurikulum Cinta</span>
+                        </div>
+                        <p class="font-semibold text-gray-800 text-sm sm:text-base">
+                            Sesuai filosofi Kurikulum Berbasis Cinta (P = F / A), apabila kita memiliki beban masalah kehidupan (F) yang terasa sangat berat, tindakan manakah yang secara ilmiah dan kejiwaan paling tepat untuk mengurangi tekanan (P) psikologis kita?
+                        </p>
+                        <div class="space-y-2 text-sm text-gray-700 pt-2">
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-pink-50/50 cursor-pointer">
+                                <input type="radio" name="q4" value="A" class="accent-emerald-600 w-4 h-4 mt-1">
+                                <span>A. Memperluas kelapangan hati (A), bersabar, serta membagi rasa empati dan saling tolong-menolong dengan sesama agar tekanan (P) berkurang.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-pink-50/50 cursor-pointer">
+                                <input type="radio" name="q4" value="B" class="accent-emerald-600 w-4 h-4 mt-1">
+                                <span>B. Menyimpan semua masalah sendiri dan menyempitkan dada.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-pink-50/50 cursor-pointer">
+                                <input type="radio" name="q4" value="C" class="accent-emerald-600 w-4 h-4 mt-1">
+                                <span>C. Menambah gaya beban masalah tanpa mempedulikan orang sekitar.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-pink-50/50 cursor-pointer">
+                                <input type="radio" name="q4" value="D" class="accent-emerald-600 w-4 h-4 mt-1">
+                                <span>D. Memperkecil rasa empati sosial agar tidak perlu membantu sesama manusia.</span>
+                            </label>
+                        </div>
+                        <div id="feedback-q4" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+                    </div>
+
+                    <!-- Tombol Submit Kuis -->
+                    <div class="flex justify-end pt-4">
+                        <button type="submit" class="bg-gradient-to-r from-emerald-600 via-teal-600 to-pink-600 hover:opacity-90 text-white font-bold px-8 py-3 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i> Kirim & Cek Hasil Evaluasi
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white border-t border-gray-800 py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+            <p class="text-sm font-semibold text-emerald-400">Materi Ajar Interaktif IPA Kelas VIII - Tekanan Zat Padat</p>
+            <p class="text-xs text-gray-400">Disusun dan Dikembangkan oleh: <span class="text-white font-bold">Dr. Luluk Hariroh, S.Pd., M.Si.</span></p>
+            <p class="text-[11px] text-gray-500 pt-2">© 2026 Pembelajaran IPA Interaktif Berbasis Pembelajaran Digital</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Switch Active Tab Functionality
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = ['pendahuluan', 'materi', 'lab', 'lkm', 'kuis'];
+            contents.forEach(id => {
+                const element = document.getElementById('content-' + id);
+                const btn = document.getElementById('tab-' + id);
+                if (element && btn) {
+                    element.classList.add('hidden');
+                    btn.classList.remove('tab-active');
+                    btn.classList.add('tab-inactive');
+                }
+            });
+
+            // Show selected content and activate tab
+            const activeContent = document.getElementById('content-' + tabId);
+            const activeBtn = document.getElementById('tab-' + tabId);
+            if (activeContent && activeBtn) {
+                activeContent.classList.remove('hidden');
+                activeBtn.classList.remove('tab-inactive');
+                activeBtn.classList.add('tab-active');
+            }
+        }
+
+        // Real-time Simulation Lab Functionality
+        function updateSimulation() {
+            const force = parseFloat(document.getElementById('input-force').value);
+            const area = parseFloat(document.getElementById('input-area').value);
+
+            // Update Labels
+            document.getElementById('val-force').innerText = force + " N";
+            document.getElementById('val-area').innerText = area.toFixed(1) + " m²";
+            document.getElementById('block-f-text').innerText = force;
+            document.getElementById('block-a-text').innerText = area.toFixed(1);
+
+            // Calculate Pressure (P = F / A)
+            const pressure = force / area;
+            document.getElementById('calc-formula').innerText = `P = ${force} / ${area.toFixed(1)}`;
+            document.getElementById('calc-result').innerText = `${pressure.toFixed(1)} N/m²`;
+
+            // Calculate visual depth (in cm for illustration max 20cm)
+            const depthVal = Math.min((pressure / 40), 20).toFixed(1);
+            document.getElementById('calc-depth').innerText = `${depthVal} cm`;
+
+            // Badge Tingkat Tekanan
+            const badge = document.getElementById('pressure-level-badge');
+            if (pressure < 50) {
+                badge.innerText = "Rendah";
+                badge.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-blue-100 text-blue-800";
+            } else if (pressure < 150) {
+                badge.innerText = "Sedang";
+                badge.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800";
+            } else if (pressure < 400) {
+                badge.innerText = "Tinggi";
+                badge.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800";
+            } else {
+                badge.innerText = "Sangat Tinggi";
+                badge.className = "px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-800";
+            }
+
+            // Update Visual Block Element Width & Sink Depth
+            const simBlock = document.getElementById('sim-block');
+            const simIndent = document.getElementById('sim-indent');
+            const depthLine = document.getElementById('depth-indicator-line');
+            const depthTag = document.getElementById('depth-indicator-tag');
+            
+            // Width derived from Area (min 70px, max 240px)
+            const calculatedWidth = 60 + (area * 34);
+            simBlock.style.width = `${calculatedWidth}px`;
+            simIndent.style.width = `${calculatedWidth}px`;
+
+            // Mud Container height is 96px (24 * 4) -> 96px corresponds to 24cm deep max visually
+            // Transform translate calculation:
+            // At P=10, depth = 0.25cm -> translation 2px downwards
+            // At P=800, depth = 20cm -> translation 80px downwards into mud
+            const sinkPx = Math.min(Math.max((pressure / 800) * 80, 2), 78);
+            
+            // Move block into mud layer
+            simBlock.style.transform = `translateY(${sinkPx}px)`;
+            
+            // Indent depth in mud matches sinkPx
+            simIndent.style.height = `${96 - sinkPx}px`;
+
+            // Line indicator position
+            depthLine.style.bottom = `${96 - sinkPx}px`;
+            depthTag.innerText = `Kedalaman: ${depthVal} cm`;
+        }
+
+        // Initialize simulation on page load
+        window.onload = function() {
+            updateSimulation();
+        };
+
+        // LKM Self-Check Functionality
+        function checkLKM() {
+            const p1 = parseFloat(document.getElementById('lkm-p1').value);
+            const p2 = parseFloat(document.getElementById('lkm-p2').value);
+            const p3 = parseFloat(document.getElementById('lkm-p3').value);
+
+            const alertBox = document.getElementById('lkm-alert');
+            alertBox.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-green-100', 'text-green-800');
+
+            // Correct answers:
+            // P1 = 100 / 1.0 = 100
+            // P2 = 100 / 4.0 = 25
+            // P3 = 300 / 1.0 = 300
+            if (p1 === 100 && p2 === 25 && p3 === 300) {
+                alertBox.classList.add('bg-green-100', 'text-green-800', 'border', 'border-green-300');
+                alertBox.innerHTML = '<i class="fa-solid fa-circle-check text-green-600 mr-2"></i> <strong>Luar Biasa!</strong> Semua perhitungan nilai Tekanan (P) pada tabel LKM sudah benar!';
+            } else {
+                alertBox.classList.add('bg-red-100', 'text-red-800', 'border', 'border-red-300');
+                alertBox.innerHTML = '<i class="fa-solid fa-circle-xmark text-red-600 mr-2"></i> <strong>Periksa Kembali:</strong> Hitunganmu belum tepat. Ingat rumus P = F / A (Percobaan 1: 100/1=100, Percobaan 2: 100/4=25, Percobaan 3: 300/1=300).';
+            }
+        }
+
+        // Quiz Evaluation Functionality
+        function submitQuiz() {
+            let score = 0;
+            
+            // Q1 (PG Kompleks) - Correct: A, B, D (C is incorrect)
+            const q1Checkboxes = document.querySelectorAll('input[name="q1"]:checked');
+            const q1Values = Array.from(q1Checkboxes).map(cb => cb.value);
+            const fb1 = document.getElementById('feedback-q1');
+            fb1.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+
+            const isQ1Correct = q1Values.includes('A') && q1Values.includes('B') && q1Values.includes('D') && !q1Values.includes('C');
+            if (isQ1Correct) {
+                score += 25;
+                fb1.classList.add('bg-green-100', 'text-green-800');
+                fb1.innerHTML = '<b>Benar!</b> Pernyataan A, B, dan D tepat. Pernyataan C salah karena A yang besar justru memperkecil P.';
+            } else {
+                fb1.classList.add('bg-red-100', 'text-red-800');
+                fb1.innerHTML = '<b>Kurang Tepat.</b> Jawaban benar adalah <b>A, B, dan D</b>. (Ingat: P berbanding lurus dengan F dan berbanding terbalik dengan A).';
+            }
+
+            // Q2 - Correct: B (600/3 = 200)
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const fb2 = document.getElementById('feedback-q2');
+            fb2.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+
+            if (q2 && q2.value === 'B') {
+                score += 25;
+                fb2.classList.add('bg-green-100', 'text-green-800');
+                fb2.innerHTML = '<b>Benar!</b> P = F / A = 600 / 3 = 200 N/m².';
+            } else {
+                fb2.classList.add('bg-red-100', 'text-red-800');
+                fb2.innerHTML = '<b>Salah.</b> Jawaban yang benar adalah <b>B (200 N/m²)</b>. Pembahasan: P = 600 / 3 = 200 N/m².';
+            }
+
+            // Q3 - Correct: B (Stul memperkecil luas alas kontak)
+            const q3 = document.querySelector('input[name="q3"]:checked');
+            const fb3 = document.getElementById('feedback-q3');
+            fb3.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+
+            if (q3 && q3.value === 'B') {
+                score += 25;
+                fb3.classList.add('bg-green-100', 'text-green-800');
+                fb3.innerHTML = '<b>Benar!</b> Stul memperkecil luas permukaan alas kontak (A) sehingga menghasilkan tekanan (P) yang besar agar menancap di tanah.';
+            } else {
+                fb3.classList.add('bg-red-100', 'text-red-800');
+                fb3.innerHTML = '<b>Salah.</b> Jawaban yang benar adalah <b>B</b>. Pembahasan: Ujung stul runcing/kecil memperkecil A untuk memperbesar P.';
+            }
+
+            // Q4 - Correct: A (Roda banyak memperbesar luas total)
+            const q4 = document.querySelector('input[name="q4"]:checked');
+            const fb4 = document.getElementById('feedback-q4');
+            fb4.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+
+            if (q4 && q4.value === 'A') {
+                score += 25;
+                fb4.classList.add('bg-green-100', 'text-green-800');
+                fb4.innerHTML = '<b>Benar!</b> Memperluas kelapangan hati (A) membuat tekanan (P) psikologis akibat beban hidup (F) menjadi berkurang.';
+            } else {
+                fb4.classList.add('bg-red-100', 'text-red-800');
+                fb4.innerHTML = '<b>Salah.</b> Jawaban yang benar adalah <b>A</b>. Pembahasan: Sesuai rumus P = F / A, memperbesar A akan mengurangi besar P.';
+            }
+
+            // Display Score Badge
+            const scoreBadge = document.getElementById('score-badge');
+            const scoreDisplay = document.getElementById('final-score');
+            scoreBadge.classList.remove('hidden');
+            scoreDisplay.innerText = `${score} / 100`;
+
+            // Smooth Scroll to Top of Quiz
+            document.getElementById('content-kuis').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
